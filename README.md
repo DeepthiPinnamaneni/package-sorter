@@ -1,10 +1,12 @@
-# Package Sorter — Smarter Technology Robotic Arm
+# 📦 Package Sorter — Smarter Technology Robotic Arm
 
 A Python solution for dispatching packages to the correct stack based on volume and mass, as part of Smarter Technology's robotic automation factory challenge.
 
+Supports **manual interactive testing** via the terminal, as well as a full automated unit test suite.
+
 ---
 
-## Problem Summary
+## 🧠 Problem Summary
 
 The robotic arm must sort packages into one of three stacks:
 
@@ -20,13 +22,15 @@ The robotic arm must sort packages into one of three stacks:
 
 ---
 
+## 🚀 Getting Started
+
 ### Prerequisites
 - Python 3.6+
 
 ### Installation
 
 ```bash
-git clone https://github.com/DeepthiPinnamaneni/package-sorter.git
+git clone https://github.com/YOUR_USERNAME/package-sorter.git
 cd package-sorter
 ```
 
@@ -38,7 +42,7 @@ No external dependencies — uses Python's built-in `unittest` module only.
 
 ```
 package-sorter/
-├── package_sorter.py   # sort() function + full unit test suite
+├── package_sorter.py   # sort() function + manual input mode + unit tests
 └── README.md
 ```
 
@@ -46,7 +50,49 @@ package-sorter/
 
 ## 💡 Usage
 
-### Import and use the function
+### ▶ Manual interactive mode (default)
+
+Run the script without any flags to enter package dimensions interactively:
+
+```bash
+python package_sorter.py
+```
+
+Example session:
+```
+==================================================
+  Smarter Technology — Package Sorter
+==================================================
+Enter package details (type 'q' at any prompt to quit)
+
+--------------------------------------------------
+  Width  (cm) : 100
+  Height (cm) : 100
+  Length (cm) : 100
+  Mass   (kg) : 25
+
+  ➤  Stack  : REJECTED
+     Flags  : BULKY (volume=1,000,000 cm³), HEAVY (25 kg)
+
+  Sort another package? (y/n) : y
+
+--------------------------------------------------
+  Width  (cm) : 10
+  Height (cm) : 10
+  Length (cm) : 10
+  Mass   (kg) : 5
+
+  ➤  Stack  : STANDARD
+     Flags  : standard package
+
+  Sort another package? (y/n) : n
+
+Goodbye!
+```
+
+Type `q` at the width prompt to exit at any time.
+
+### 🔧 Import and use in your own code
 
 ```python
 from package_sorter import sort
@@ -77,10 +123,10 @@ def sort(width: float, height: float, length: float, mass: float) -> str:
 
 ---
 
-## Running Tests
+## 🧪 Running Automated Tests
 
 ```bash
-python package_sorter.py
+python package_sorter.py --test
 ```
 
 Expected output:
